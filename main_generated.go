@@ -4,12 +4,11 @@ package main
 import (
 	"github.com/adarah/go-aoc/solutions/2021/day_01"
 	"github.com/adarah/go-aoc/solutions/2021/day_02"
-	"github.com/adarah/go-aoc/lib"
 	"fmt"
 )
 
-func getImplementation(year, day uint) (lib.Solution, error) {
-	registry := map[string]lib.Solution{
+func getImplementation(year, day uint) (Solution, error) {
+	registry := map[string]Solution{
 		"solutions/2021/day_01": &day_01.Solution{},
 		"solutions/2021/day_02": &day_02.Solution{},
 	}

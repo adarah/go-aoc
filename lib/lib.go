@@ -9,8 +9,3 @@ func ReadFile(path string) string {
 	}
 	return string(data)
 }
-
-type Solution interface {
-	PartOne(input string) (string, error)
-	PartTwo(input string) (string, error)
-}

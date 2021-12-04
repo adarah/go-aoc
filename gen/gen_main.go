@@ -17,12 +17,11 @@ import (
 	{{- range .Solutions }}
 	"{{ $.ModuleName }}/{{ .Path }}"
 	{{- end }}
-	"github.com/adarah/go-aoc/lib"
 	"fmt"
 )
 
-func getImplementation(year, day uint) (lib.Solution, error) {
-	registry := map[string]lib.Solution{
+func getImplementation(year, day uint) (Solution, error) {
+	registry := map[string]Solution{
 		{{- range .Solutions }}
 		{{ .Path | printf "%q" }}: &{{ .PackageName }}.Solution{},
 		{{- end }}
@@ -70,7 +69,7 @@ func getSolutions() []solutionMetadata {
 	var metadata []solutionMetadata
 	root := "solutions"
 	err := filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
-		if err != nil || !d.IsDir() || d.Name() == root || strings.Count(path, "/") != 2 {
+		if err != nil || !d.IsDir() || strings.Count(path, "/") != 2 {
 			return nil
 		}
 		metadata = append(metadata, solutionMetadata{Path: path, PackageName: d.Name()})

@@ -10,6 +10,11 @@ import (
 	"time"
 )
 
+type Solution interface {
+	PartOne(input string) (string, error)
+	PartTwo(input string) (string, error)
+}
+
 func init() {
 	log.SetFlags(0)
 }
