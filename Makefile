@@ -1,6 +1,7 @@
 .DEFAULT_GOAL=build
 
 build:
+	go generate ./...
 	go build
 
 install:
